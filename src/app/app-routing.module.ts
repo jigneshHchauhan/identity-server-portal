@@ -5,6 +5,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 import { IdentityComponent } from './identity/identity.component';
 import { UsersComponent } from './identity/users/users.component';
+import { SignupComponent } from './auth/signup/signup.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
       {
         path: 'login',
         component: LoginComponent
+      },
+      {
+        path: 'signup',
+        component: SignupComponent
       },
       {
         path: '**',
