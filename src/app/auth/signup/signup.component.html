@@ -1,0 +1,30 @@
+<div class="d-flex align-items-center justify-content-center" style="height: 50rem;">
+    <div class="m-auto">
+        <main class="w-100">
+            <form #userForm="ngForm" (ngSubmit)="onUserSubmit(userForm)">
+                <h1 class="h3 mb-3 fw-normal align-content-center">Register</h1>
+
+                <div class="form-floating">
+                    <input type="email" class="form-control" id="floatingInput" name="email"
+                        [(ngModel)]="userNgModel.email" placeholder="example@gmail.com">
+                    <label for="floatingInput">Email</label>
+                </div>
+
+                <div class="form-floating">
+                    <input type="password" class="form-control password" id="floatingPassword" name="password"
+                        [(ngModel)]="userNgModel.password" placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control confirm-password" id="floatingConfirmPassword"
+                        name="confirmPassword" [(ngModel)]="userNgModel.confirmPassword" placeholder="Password">
+                    <label for="floatingConfirmPassword">Confirm Password</label>
+                </div>
+
+                <button class="w-100 btn btn-lg btn-primary" type="submit">Signup</button>
+            </form>
+        </main>
+    </div>
+
+</div>

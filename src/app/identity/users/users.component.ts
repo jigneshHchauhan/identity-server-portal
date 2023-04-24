@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
 })
-export class UsersComponent {
+export class UsersComponent implements OnInit {
 
   public users = [
     { id: 1, imgSrc: '../../../assets/images/alexander-hipp-iEEBWgY_6lA-unsplash.jpg', name: 'Alexander hipp' },
@@ -16,6 +17,24 @@ export class UsersComponent {
     { id: 6, imgSrc: '../../../assets/images/alex-suprun-ZHvM3XIOHoE-unsplash.jpg', name: 'Alex Suprun' },
     { id: 7, imgSrc: '../../../assets/images/edward-cisneros-_H6wpor9mjs-unsplash.jpg', name: 'Edward Cisneros' },
     { id: 8, imgSrc: '../../../assets/images/christian-buehner-DItYlc26zVI-unsplash.jpg', name: 'Christian Buehner' },
-  ]
+  ];
+
+  constructor(private httpClient: HttpClient) { }
+
+  ngOnInit(): void {
+    this.getUsers();
+  }
+
+  public getUsers() {
+    this.httpClient.get('https://localhost:7117/api/users',
+      {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        responseType: 'json'
+      }).subscribe((userResponse) => {
+        console.log(userResponse);
+      })
+  }
 
 }
